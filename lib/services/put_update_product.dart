@@ -14,8 +14,9 @@ class UpdateProductService {
       required String description,
       required String image,
       required String category}) async {
+    print("IDDDDDDDDDDD : $id");
     Response response = await Api().put(
-      url: "https://fakestoreapi.com/products",
+      url: "https://fakestoreapi.com/products/$id",
       id: id,
       data: {
         "title": title,

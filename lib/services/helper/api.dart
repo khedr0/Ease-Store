@@ -47,8 +47,14 @@ class Api {
         "Authorization": "Bearer $token",
       });
     }
+    print("url: $url , data : $data  , token : $token ");
     Dio dio = Dio();
     Response response = await dio.put("$url/$id", data: data);
-    return response.data;
+
+    if (response.statusCode == 200) {
+      print(response.data);
+      return response.data;
+    } else
+      throw Exception("there is a problem ${response.statusCode}");
   }
 }
